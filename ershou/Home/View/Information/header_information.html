@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">  
+  <title>{$title}___WEB_NAME__</title>
+  <script src="__ROOT__/../public/jquery/jquery_v2.1.3.min.js"></script>  
+  <script src="__ROOT__/../public/bootstrap-3.3.5-dist\js\bootstrap.min.js"></script>
+  <link rel="stylesheet" href="__ROOT__/../public/bootstrap-3.3.5-dist\css\bootstrap.min.css">
+  <link rel="stylesheet" href="__CSS__/song.css">
+  <link rel="stylesheet" href="__CSS__/about.css">  
+  <script src="./js/js.js"></script>
+</head>
+<body>
+
+
+
+  <!-- nav-bar -->
+  <div class="navbar navbar-default navbar-about">
+    <div class="container">
+      <div class="navbar-header">
+        <a href="__APP__" class="navbar-brand yahei bold"><span class="text-primary">__WEB_NAME__</span></a>
+        <button class="navbar-toggle" data-toggle="collapse" data-target="#navbar-we">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>        
+      </div><!-- navbar-header_end -->
+      <div class="collapse navbar-collapse" id="navbar-we">
+        <ul class="nav navbar-nav">
+          <li <if condition="isset($we)">class="active-underline"</if>><a href="__CONTROLLER__/we/" class="yahei">我们</a></li>
+          <li <if condition="isset($follow)">class="active-underline"</if>><a href="__CONTROLLER__/follow/" class="yahei">关注</a></li>
+          <li <if condition="isset($download)">class="active-underline"</if>><a href="__CONTROLLER__/download/" class="yahei"><span>下载</span></a></li>
+          <li <if condition="isset($accusation)">class="active-underline"</if>><a href="__CONTROLLER__/accusation/" class="yahei">举报</a></li>
+          <li <if condition="isset($feedback)">class="active-underline"</if>><a href="__CONTROLLER__/feedback/" class="yahei">反馈</a></li>          
+        </ul>
+      </div>
+
+
+    </div>
+
+  </div>
+<!-- nav-bar_end -->

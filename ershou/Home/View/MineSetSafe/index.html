@@ -1,0 +1,41 @@
+<layout name="Layout/layout_mine"/>
+
+<div class="col-md-7">
+  <div class="panel panel-success margin-top">
+
+    <div class="panel-body">
+      <fieldset>
+        <legend><span class="glyphicon glyphicon-cog"></span> 安全设置</legend>
+      </fieldset>
+
+
+      <!-- 表单     -->
+      <form class="form-horizontal" method="POST" action="__CONTROLLER__/actSetPwd/?school_id={$school_id}">              
+        <div class="form-group">
+          <label for="used" class="control-label col-md-3">新密码</label>
+          <div class="col-md-7"><input type="password" name="user_pwd" id="used" class="form-control" placeholder="小于15个字符"></div>
+        </div>                                
+<!--         <div class="form-group">
+          <label for="used" class="control-label col-md-3">再次确认信新密码</label>
+          <div class="col-md-7"><input type="password" name="" id="used" class="form-control" placeholder="再次输入"></div>
+        </div>   -->       
+        <div class="form-group">
+          <div class="col-md-8 col-md-offset-2"><input type="submit" value="修改密码" name="" id="used" class="form-control btn btn-primary"></div>
+        </div>            
+      </form>
+      <!-- 表单_end -->
+
+    </div><!--panel_body__end-->
+  </div>          
+
+
+
+</div>
+
+
+</div>
+<!-- row_end -->
+</div>
+<!-- 内容_container_end  -->
+
+

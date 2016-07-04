@@ -1,0 +1,452 @@
+body{
+	background: #fff;
+}
+.yahei{
+	font-family:'Micsoft Yahei','微软雅黑';
+}
+.pointer{
+	cursor:pointer;
+}
+.bold{
+	font-weight:bold;
+}
+.normal{
+	font-weight:normal;
+}
+
+
+
+
+/*字体大小*/
+.font-small{
+	font-size:12px;
+}
+.font-medium{
+	font-size:14px;
+}
+.font-16{
+	font-size:16px;
+}
+.font-15{
+	font-size:16px;
+}
+.font-big{
+	font-size:18px;
+}
+
+.line-height{
+	line-height:100%;
+}
+
+.inline{
+	display:inline;
+}
+
+/*颜色*/
+.c-white{
+	color:white;
+}
+.c-ddd{
+	color:#ddd;
+}
+.c-c8{
+	color:#c8c8c8;
+}
+.c-gray{
+	color:gray;
+}
+.c-black{
+	color:black;
+}
+
+.b-f9{
+	background: #f9f9f9;
+}
+.b-primary{
+	background:#31708f;
+}
+
+.hover-white:hover{
+	color:white;
+}
+.hover-black:hover{
+	color:black;
+}
+.active-color{
+	color:black;
+}
+.active-underline{
+	border-bottom:1px solid gray;
+}
+
+.btn-padding{
+	padding:1px;
+}
+
+/*重写*/
+.jumbotron{
+	margin-bottom:0;
+}
+/*重写首页戴航条*/
+.navbar-index{
+	padding-top:5px;
+	padding-bottom:5px;
+	background-color:rgba(248,248,248,0.5);
+}
+.navbar-brand-index{
+	padding-top:0;	
+	padding-bottom:0;
+	padding-left:3px;		
+}
+.school{
+	padding-top: 4px;
+}
+.school p{
+	margin:0;
+}
+.fixed{
+	position:fixed;
+}
+.img-20{
+	height:29px;
+}
+
+#navbar_form_mgt{
+	padding-top:3px;
+}
+
+/*mine 滚动条默认样式*/
+::-webkit-scrollbar-thumb{  
+	background-color:#A0A0A0;
+}  
+/*---鼠标点击滚动条显示样式--*/  
+::-webkit-scrollbar-thumb:hover{  
+	background-color:gray;  
+}
+/*---鼠标点击滚动条显示样式--*/  
+::-webkit-scrollbar-thumb:active{  
+	background-color:#23282d;  
+}  
+/*---滚动条大小--*/  
+::-webkit-scrollbar{  
+	width:6px;
+	height:8px;/*横向滚动条*/
+}  
+/*---滚动框背景样式--*/  
+::-webkit-scrollbar-track-piece{  
+	background-color:#f9f9f9;  
+}  
+
+.to_top{
+	display:none;
+	position:fixed;
+	right:25px;
+	bottom:25px;
+	width: 40px;
+	height: 40px;
+	border-radius:20px;
+	opacity:0.8;
+	background:url("../images/icon/up.png") #272727 no-repeat 13px 15px;
+	cursor:pointer;
+	z-index:10;
+}
+.youshang li a{
+	padding-left:3px;
+	padding-right:3px;
+}
+.text-medium{
+	vertical-align:text-top;
+}
+.vitical-center{
+	vertical-align:text-top;	
+}
+.vitical-bottom{
+	vertical-align:bottom;	
+}
+.checkbox_medium{
+	vertical-align:-13%;
+}
+#fg_pwd{
+	margin-left:43.2%;
+}
+
+#verify_div{
+	width:26%;
+}
+
+.border{
+	border:1px solid white;
+	border-radius:5px;
+}
+.hover_bg:hover{
+	border:1px solid gray;
+	text-decoration:none;
+}
+.select_now{
+	border:1px solid #abcdef;
+}
+@font-face {font-family: 'iconfont';
+src: url('./iconfont/iconfont.eot'); /* IE9*/
+src: url('./iconfont/iconfont.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+url('./iconfont/iconfont.woff') format('woff'), /* chrome、firefox */
+url('./iconfont/iconfont.ttf') format('truetype'), /* chrome、firefox、opera、Safari, Android, iOS 4.2+*/
+url('./iconfont/iconfont.svg#iconfont') format('svg'); /* iOS 4.1- */
+}
+.iconfont{
+	font-family:"iconfont" !important;
+	font-style:normal;
+	-webkit-font-smoothing: antialiased;
+	-webkit-text-stroke-width: 0.2px;
+	-moz-osx-font-smoothing: grayscale;
+	font-size:30px;
+	color:#777;
+}
+.gi_font{
+	font-style:normal;	
+	font-size:24px;
+	line-height:41px;
+	color:#777;	
+}
+.border_list{
+	border:1px solid #ddd;
+	border-radius:5px;
+	background:white;
+	position:relative;
+	height:350px;
+	overflow:hidden;
+}
+.border_list:hover{
+	border:1px solid blue;
+}
+.margin-bottom{
+	margin-bottom:10px;
+}
+.list_miaoshu{
+	margin:0;	
+	position:absolute;
+	width: 85%;	
+	left:15px;
+	bottom:13px;
+}
+.list_miaoshu_qiugou{
+	width: 85%;	
+}
+.pd-r-0{
+	padding:3px;
+	margin-bottom:5px;
+	padding-top:0;
+}
+.img_h{
+	width:100%;
+	max-height:100%;
+}
+.list_img{
+  height:66%;
+}
+.l-h-225{
+	line-height:225px;
+}
+.margin-0{
+	margin: 0;
+}
+
+.img_wh{
+	width:100%;
+	max-height:225px;
+}
+.relative{
+	position: relative;
+}
+
+.bg-white{
+	background:white;
+}
+
+.biaoqian{
+	display:inline-block;
+	border:1px solid blue;
+	width:20px;
+	height:20px;
+	line-height:17px;
+	text-align:center;
+	color:blue;
+	cursor:default;
+	margin-top:6px;	
+	margin-right:1px;
+	background:white;
+	font-family:'Micsoft Yahei','微软雅黑';
+}
+.no-pull{
+	clear:both;
+}
+.qiugou{
+	background: #eee;
+	height:37px;
+	line-height:37px;
+	color:gray;
+}
+.l_h{
+	line-height:20px;
+}
+.pdding_right{
+	padding-right:0;
+}
+.padding-left{
+	padding-left:0!important;
+}
+.hr_mg{
+	margin-top:7px;
+	margin-bottom:7px;
+}
+
+/*content页*/
+.tab_img{
+	width:100%;
+	max-height:412px;
+}
+.l_h_c{
+	line-height: 30px;
+}
+.margin-top{
+	margin-top: 20px;
+}
+.text-indent{
+	text-indent:2em;
+}
+.touxiang_div_80{
+	width:80px;
+	height:80px;
+}
+.touxiang_pd{
+	padding-top:15px;
+}
+.left_img{
+	width:30%;
+}
+.padding-right{
+	padding-right:0;
+}
+.m_t{
+	margin-top:10px;
+}
+/*content页的图片*/
+  .tab_title,.tab_content{
+    list-style:none;
+    padding:0;
+  }
+  .tab_title li{
+    width:15%;
+    border:2px solid #abcdef;
+    cursor:pointer;
+    display:inline-block;
+    vertical-align:bottom;
+    margin-right:-3px;
+  }
+  .tab_title{
+    position:absolute;
+    bottom:5px;
+    left:5px;
+    z-index:10;
+    margin:0;
+  }
+  .relative{
+    position:relative;
+  }
+  .tab_content{
+    margin-bottom:0;
+  }
+  .current_{
+    border: 2px solid #ddd!important;
+    opacity:1!important;
+  }
+  .show_{
+    display:block;
+  }
+  .hide_{
+    display:none;
+  }
+
+/*个人中心*/
+.logo_40{
+	margin:0;
+	padding:0;
+	height:40px;
+	margin-right:20px;
+	border-radius:0!important;
+}
+.l_h_pd_10{
+	padding:10px!important;
+	color:red;
+	display:block;
+}
+.pd-tb-0{
+	padding:-top:0;
+	padding-right:0;
+}
+.navbar-h40{ /**nanvbar*/
+	min-height:40px!important;
+	margin:0;
+}
+.jt_bg{
+	background:#6f5499;
+	height:180px;
+}
+.touxiang_bg{
+	width:20%;
+}
+.jt_bg p{
+	margin-bottom:0!important;
+}
+.margin-top-15{
+	margin-top:25px;
+}
+.line-height-23{
+	line-height: 23px;
+}
+fieldset ul li a{
+	color:gray;
+}
+fieldset ul li a:hover{
+	color:#259!important;
+}
+.active_bg{
+	background:#eff6fa;
+}
+.active_bg a{
+	color:#259!important;
+}
+
+.img-80{
+	max-width:80px;
+	height:80px;
+}
+.table_list tr td,.middle{
+	vertical-align:middle!important;
+}
+.legend_pd{
+	padding-bottom:3px;
+}
+.img-25{
+	width: 30px;
+	height:30px;
+}
+#mine_a{
+	padding-top:10px;
+	padding-bottom:10px;
+}
+
+#index-pd-top{
+	padding-top:75px;
+}
+.glyphicon-refresh:hover{
+	color:black;
+}
+
+.height-100p{
+	height:100%;
+}
+
+/*编辑器*/
+.text-center{
+	text-align:center!important;
+}

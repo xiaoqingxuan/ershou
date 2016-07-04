@@ -1,0 +1,69 @@
+<layout name="Layout/layout_mine"/>
+
+
+    <div class="col-md-7">
+      <div class="panel panel-success margin-top">
+
+        <div class="panel-body">
+          <fieldset>
+            <legend><span <span class="glyphicon glyphicon-cog"></span> 个人信息</legend>
+          </fieldset>
+          <div class="col-md-12">
+            <div class="center-block touxiang_div_80"><img src="__IMG__/test/user.png" style="width:100%;height:100%;" alt="" class="img-circle"></div>
+            <br>
+          </div>
+            
+          <!-- 表单     -->
+          <form class="form-horizontal" id="form" method="POST" action="__CONTROLLER__/actSetPersonal/?school_id={$school_id}">
+<!--             <div class="form-group">
+              <label for="used_file" class="control-label col-md-3">修改头像</label>
+              <div class="col-md-7"><input type="file" name="" id="used_file" class="file_mt"></div>
+            </div>   -->              
+            <div class="form-group">
+              <label for="user_name" class="control-label col-md-3">用户名</label>
+              <div class="col-md-7"><input type="text" name="user_name" id="user_name" class="form-control validate[maxSize[7]]" placeholder="至多7字"></div>
+            </div>    
+            <div class="form-group">
+              <label for="default_phone" class="control-label col-md-3">QQ</label>
+              <div class="col-md-7"><input type="text" name="default_qq" id="default_qq" class="form-control validate[custom[phone]]" value="{$default.default_qq}" placeholder="发布时将自动填写 至多11位数字"></div>
+            </div>                                        
+            <div class="form-group">
+              <label for="default_phone" class="control-label col-md-3">手机号</label>
+              <div class="col-md-7"><input type="text" name="default_phone" id="default_phone" class="form-control validate[custom[phone]]" value="{$default.default_phone}" placeholder="发布时将自动填写 至多11位数字"></div>
+            </div>
+            <div class="form-group">
+              <label for="default_address" class="control-label col-md-3">校内地址</label>
+              <label for="default_address" class="control-label col-md-2 font-small normal text-center" style="padding:10px 0 0 0;" data-toggle="tooltip" data-placement="bottom" title="学校不正确吗? 点击修改。"><a class="text-muted" href="__MODULE__/MineSelectSchool/">{$address}&nbsp;</a></label>              
+              <div class="col-md-5" style="padding-left:0;"><input type="text" name="default_address" id="default_address" class="form-control inline validate[maxSize[23]]" value="{$default.default_address}" placeholder="发布时将自动填写 至多23字"></div>
+            </div>
+          
+            <div class="form-group">
+              <div class="col-md-8 col-md-offset-2"><input type="submit" value="修改" name="" id="used" class="form-control btn btn-primary"></div>
+            </div>            
+          </form>
+          <!-- 表单_end -->
+
+        </div><!--panel_body__end-->
+      </div>          
+
+
+
+    </div>
+
+
+  </div>
+  <!-- row_end -->
+</div>
+<!-- 内容_container_end  -->
+
+
+<!-- 表单验证 -->
+<link rel="stylesheet" href="__ROOT__/../public/jquery/Validation-Engine/css/validationEngine.jquery.css">
+<script src="__ROOT__/../public/jquery/Validation-Engine/js/jquery.validationEngine-zh_CN.js"></script> 
+<script src="__ROOT__/../public/jquery/Validation-Engine/js/jquery.validationEngine.js"></script> 
+<script>
+$('#form').validationEngine({addPromptClass:'formError-text',promptPosition:'centerRight'});
+</script>
+<script>
+$(function () { $("[data-toggle='tooltip']").tooltip(); });   
+</script>

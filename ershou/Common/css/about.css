@@ -1,0 +1,53 @@
+.apple_store_btn{
+	margin-top:10%;
+}
+
+
+/*关于我们等页面的导航条重写*/
+.navbar-about{
+	margin-bottom:0;
+}
+.phone_height{
+	height:350px;
+}
+#chongxie_nav{
+	top: 100px; /* Set the top position of pinned element */
+    width:19%;
+}
+
+
+/*copy_fanli*/
+#chongxie_nav{
+    margin-top: 20px;
+    border-radius: 4px;
+    border: 1px solid #ddd;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.067);
+}
+#chongxie_nav li{
+    margin: 0;
+    border-top: 1px solid #ddd;
+}
+#chongxie_nav li:first-child{
+    border-top: none;
+}
+#chongxie_nav li a{
+    margin: 0;
+    padding: 8px 16px;
+    border-radius: 0;
+}
+#chongxie_nav li.active a, #chongxie_nav li.active a:hover{
+    color: #fff;
+    background: #0088cc;
+    border: 1px solid #0088cc;
+}
+#chongxie_nav li:first-child a{
+    border-radius: 4px 4px 0 0;
+}
+#chongxie_nav li:last-child a{
+    border-radius: 0 0 4px 4px;
+}
+
+
+.padding_top{
+    padding-top:30px;
+}

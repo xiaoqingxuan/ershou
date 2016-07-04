@@ -1,0 +1,72 @@
+<layout name="Layout/layout_mine"/>
+
+    <div class="col-md-7">
+      <div class="panel panel-success margin-top">
+
+        <div class="panel-body">
+          <fieldset>
+            <legend><span class="glyphicon glyphicon-edit"></span> 发布求购</legend>
+          </fieldset>             
+          <!-- 表单     -->
+          <form class="form-horizontal" method="POST" action="__CONTROLLER__/actEditSeek/">
+            <div class="form-group">
+              <label for="used" class="control-label col-md-3">商品名称</label>
+              <div class="col-md-7"><input type="text" name="seek_name" id="used" class="form-control" placeholder="25字以内"></div>
+            </div>
+            <div class="form-group">
+              <label for="used" class="control-label col-md-3">希望价格</label>
+              <div class="col-md-3">
+                <div class="input-group">
+                  <span class="input-group-addon">￥</span><input type="text" name="expect_price" id="used" class="form-control" placeholder="填写数字">
+                </div>
+              </div>
+              <div class="col-md-1 text-center"><label class="control-label">或</label></div>
+              <div class="col-md-3"><div class="radio"><label><input type="radio" name="" value="0" id=""> 对方报价</label></div>
+
+              </div>                
+            </div>
+            <div class="form-group">
+              <label for="userd_describe" class="control-label col-md-3">物品描述</label>
+              <div class="col-md-7"><textarea name="seek_desc" class="form-control" id="userd_describe" cols="30" rows="10" placeholder="描述您需要的物品"></textarea></div>
+            </div> 
+            <div class="form-group">
+              <label for="used" class="control-label col-md-3">交易地点</label>
+              <div class="col-md-7"><input type="text" name="trade_address" id="used" class="form-control" placeholder="xx饭堂、xx宿舍、xx教学楼等"></div>
+            </div>
+            <div class="form-group">
+              <label for="used" class="control-label col-md-3">类别</label>
+              <div class="col-md-7">
+                <select name="cat_id" id="" class="form-control">
+                  <option value="" class="text-info">请选择</option>
+                  <option value="1">图书教材</option>
+                  <option value="2">代步工具</option>
+                </select>              
+              </div>
+            </div>                         
+            <div class="form-group">
+              <label for="used" class="control-label col-md-3">手机号</label>
+              <div class="col-md-7"><input type="text" name="phone_number" id="used" class="form-control" placeholder="至多11位数字"></div>
+            </div>
+            <div class="form-group">
+              <label for="checked" class="col-md-offset-3 col-md-4"><input type="checkbox" checked="true" name="agree_rule" id="checked" class="text-medium"> 我同意<a href="">《发布规则》</a></label>
+            </div>            
+            <div class="form-group">
+              <div class="col-md-8 col-md-offset-2"><input type="submit" value="发布" name="" id="used" class="form-control btn btn-primary"></div>
+            </div>            
+          </form>
+          <!-- 表单_end -->
+
+        </div><!--panel_body__end-->
+      </div>          
+
+
+
+    </div>
+
+
+  </div>
+  <!-- row_end -->
+</div>
+<!-- 内容_container_end  -->
+
+  

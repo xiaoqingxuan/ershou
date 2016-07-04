@@ -1,0 +1,62 @@
+
+
+
+
+
+<layout name="Layout/layout_admin"/>
+
+
+<div class="col-md-9">
+	<div class="panel panel-success margin-top">
+
+		<div class="panel-body">
+			<fieldset>
+				<legend><span class="glyphicon glyphicon-th-list"></span> {$title}</legend>
+			</fieldset>
+
+
+
+
+
+
+			<div class="row">
+				<div class="col-md-12">
+
+					<table class="table table-striped table-hover">
+						<tr>
+							<th class="text-center">编号</th>
+							<th class="text-center">文章名</th>
+							<th class="text-center">发布时间</th>
+							<th class="text-center">发布人</th>
+							<th class="text-center">操作</th>
+						</tr>
+						<volist name="list" id="k">
+							<tr>
+								<td class="text-center">{$k.id}</td>
+								<td class="text-center"><a href="__ROOT__/index.php/Home/NewsContent/?id={$k.id}">{$k.title}</a></td>
+								<td class="text-center">{$k.add_time|date="y-m-d H:s",###}</td>
+								<td class="text-center">{$k.add_user}</td>								
+								<td class="text-center"><a href="__CONTROLLER__/delNews/?del_id={$k.id}" class="btn btn-default btn-xs">删除</a> &nbsp;<a href="__CONTROLLER__/edit/?id={$k.id}" class="btn btn-default btn-xs">编辑</a></td>
+							</tr>
+						</volist>				
+					</table>
+				</div>
+			</div>
+			<div class="row"><div class="com-md-12 text-center">{$page}</div></div>
+
+
+
+
+
+
+
+
+		</div><!--panel_body__end-->
+	</div>          
+</div>
+</div>
+<!-- row_end -->
+</div>
+<!-- 内容_container_end  -->
+
+

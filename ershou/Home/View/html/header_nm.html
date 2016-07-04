@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">  
+  <title><if condition="isset($_GET['cat_id'])">{$cat_find['cat_name']}-</if><if condition="isset($title)">{$title}-</if>__WEB_NAME__</title>
+    <script src="__ROOT__/../public/jquery/jquery_v2.1.3.min.js"></script>  
+    <script src="__ROOT__/../public/bootstrap-3.3.5-dist/js/bootstrap.min.js"></script>
+    <script src="__JS__/bootstrap-hover-dropdown.js"></script>
+    <link rel="stylesheet" href="__ROOT__/../public/bootstrap-3.3.5-dist\css\bootstrap.min.css">
+    <link rel="stylesheet" href="__ROOT__/../public/jquery/artDialog/css/ui-dialog.css">
+    <script src="__ROOT__/../public/jquery/artDialog/dist/dialog-min.js"></script> 
+    <link rel="stylesheet" href="__CSS__/song.css">
+  </head>
+  <body>
+
+
+
+
+
+    <!-- 导航条 -->
+    <div class="navbar navbar-default navbar-index navbar-fixed-top">
+      <div class="container">
+
+        <div class="navbar-header">
+          <a class="navbar-brand navbar-brand-index" href="__ROOT__/?school_id={$school_id}" title="xx,专业和便利的校内二手交易平台。">
+            <!-- logo 最多50px高 -->
+            <img src="__IMG__/logo/logo.png" alt="logo" style="height:45px;margin-top:2.5px;">
+          </a>
+
+          <div class="pull-left school text-center">
+            <p class="text-center yahei font-medium c-black">{$school}</p>
+              <a href="__MODULE__/SelectSchool/?school_id={$school_id}" class="btn btn-default btn-sm btn-padding font-small c-gray" title="切换我的学校"><span class="glyphicon glyphicon-map-marker"></span>切换学校</a>
+          </div>
+
+          <button class="navbar-toggle" data-toggle="collapse" data-target="#navbar_">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+        </div>
+        
+        <div class="collapse navbar-collapse" id="navbar_">
+          <ul class="nav navbar-nav yahei">
+            <li><a href="__APP__/?school_id={$school_id}"><span  <if condition="isset($used_list_nav_boolen)">class="active-color"</if>>__USED_ZONE__</span></a></li>          
+            <li><a href="__MODULE__/Index/cat/?cn_id=2&school_id={$school_id}"><span  <if condition="isset($seek_list_nav_boolen)">class="active-color"</if>>__SEEK_ZONE__</span></a></li>
+
+          </ul>
+
+          <if condition="isset($_SESSION['user_email'])">
+            <ul class="nav navbar-nav navbar-right yahei">   
+              <li class="dropdown">
+                <a class="font-small dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" href="#" id="mine_a">
+<!--                   <if condition="isset($_COOKIE['user_icon'])"><img src="__IMG__/user_icon/{$_COOKIE.user_icon}" class="img-25" alt=""></if> -->
+                  <span style="line-height:28px;">{$_COOKIE.user_name}</span>                    
+                  <span class="caret"></span>
+                </a>
+                <ul class="dropdown-menu">
+                  <li class="text-right"><a href="__MODULE__/Mine/"><span class="glyphicon glyphicon-user"></span> 个人中心</a></li>
+                  <li class="text-right"><a href="#"><span class="glyphicon glyphicon-heart"></span> 我的收藏</a></li>                              
+                  <li class="text-right"><a href="__MODULE__/login/logout/?no_school=1"><span class="glyphicon glyphicon-log-out"></span> 退出登录</a></li>              
+                </ul>
+              </li>
+            </ul> 
+            <else />
+            <ul class="nav navbar-nav navbar-right yahei">   
+              <li><a href="__MODULE__/register/?school_id={$school_id}" class="padding-left">注册</a></li>
+              <li><a href="__MODULE__/login/?school_id={$school_id}" class="padding-left">登录</a></li>
+            </ul>
+          </if>
+
+          <form action="" class="navbar-form navbar-right hidden-md hidden-sm" id="navbar_form_mgt">
+            <div class="input-group">
+              <input type="text" name="" class="form-control font-small input-sm" placeholder="商品检索" data-toggle="tooltip" data-placement="bottom" title="__SEARCH_REMIND__">
+              <span class="input-group-btn">
+                <button class="btn btn-default input-sm" type="button"><span class="glyphicon glyphicon-search"></span></button>
+              </span>            
+            </div>
+            <a href="__MODULE__/MinePublish/publishUsed/" class="btn btn-primary yahei btn-sm" title="免费发布我要出售的商品。"><span class="glyphicon glyphicon-edit"></span>&nbsp;__EDIT_USED__</a>
+            <a href="__MODULE__/MinePublish/publishSeek/" class="btn btn-primary yahei btn-sm" title="删除或修改订单状态。"><span class="glyphicon glyphicon-bell"></span>&nbsp;发布求购</a>
+            <a href="__MODULE__/Mine/" class="btn btn-primary yahei btn-sm" title="删除或修改订单状态。"><span class="glyphicon glyphicon-wrench"></span>&nbsp;改删订单</a>
+
+          </form>
+
+
+        </div>
+
+      </div>
+    </div>
+    <!-- 导航条_end -->
+    <!-- 模态框 -->
+
+    <!-- 模态框_end -->
+
+

@@ -1,0 +1,292 @@
+<layout name="Layout/layout_index"/>
+
+
+
+
+<!-- <div class="container" id="index-pd-top" style="width:1170px;"> -->
+<div class="container" id="index-pd-top">
+  <!-- 左9右3，左上最新商品tab，然后教材区...等等。右上分类，然后专题，然后公告栏。 -->
+
+
+  <div class="row">
+
+    <div class="col-md-9 yahei">
+
+      <div class="row">
+        <if condition="isset($_GET['cat_id'])">
+          <ol class="breadcrumb margin-bottom yahei" >
+            <li class="active"><a href="__APP__"><small class="glyphicon glyphicon-home"></small> 首页</a></li>  
+            <li><a href="__CONTROLLER__/index/?cn_id={$channel.cn_id}">{$channel.cn_name}</a></li>
+            <li class="active">{$cat_name['cat_name']}</li>
+          </ol>
+        </if>
+      </div>
+      <!-- 最新 -->
+      <!-- 商品list-->
+      <div class="row margin-bottom">
+        <!-- 4列商品-->
+
+        <volist name="seek_list" id="v">
+          <div class="col-md-3 pd-r-0">
+            <div class="border_list">
+              <!-- 上图下标题等信息 上下结构 -->
+              <div class="row">
+                <div class="text-center qiugou">求购</div>            
+                <div class="col-md-12">
+                  <div class="col-md-12 font-15">
+                    <h4 class="hr_mg" class="text-primary">{$v.seek_name}</h4>               
+                    <p class="text-muted" style="text-indent:2em;">{$v.seek_desc}</p> 
+                  </div>               
+                </div>
+              </div>
+
+              <div class="row list_miaoshu">
+                <div class="row font-medium text-muted">
+                  <div class="col-xs-5 pdding_right">
+                    <span class="glyphicon glyphicon-map-marker"></span> 交易地:
+                  </div>
+                  <div class="col-xs-6">
+                    <div class="row">{$v.trade_address}</div>
+                  </div>
+                </div>
+                <div class="row font-medium text-muted">
+                  <div class="col-xs-5 pdding_right">
+                    <span class="glyphicon glyphicon-heart"></span> 期望价:
+                  </div>
+                  <div class="col-xs-6">
+                    <div class="row text-primary bold">¥{$v.expect_price}</div>
+                  </div>
+                </div>
+                <div class="row font-medium text-muted">
+                  <div class="col-xs-5 pdding_right">
+                    <span class="glyphicon glyphicon-earphone"></span> 联系ta:
+                  </div>
+                  <div class="col-xs-6">
+                    <div class="row">{$v.phone_number}</div>
+                  </div>
+                </div>
+                <hr class="hr_mg">                  
+                <div class="no-pull l_h">
+                  <a href="" class="pull-left text-muted font-small"><span class="glyphicon glyphicon-user"></span> {$v.user.user_name}</a>
+                  <span class="text-muted pull-right font-small" title="发布时间"><span class="glyphicon glyphicon-time"></span> {$v.is_seek}</span>
+                </div>                  
+                <div class="no-pull l_h">
+                  <span class="text-muted pull-left font-small" title="发布时间"><span class="glyphicon glyphicon-pencil"></span> {$v.add_time}</span>
+                  <a href="" class="pull-right text-muted font-small" title="交易地点"><span class="glyphicon glyphicon-comment"></span> 评论(5)</a>
+                </div>
+              </div>                  
+              <!-- 上下结构_END -->
+            </div>                  
+          </div>
+          <!-- 一个求购商品_end -->  
+        </volist>
+        <!-- 一个求购商品 -->
+        <div class="col-md-3 pd-r-0">
+          <div class="border_list">
+            <!-- 上图下标题等信息 上下结构 -->
+            <div class="row">
+              <div class="text-center qiugou">求购</div>            
+              <div class="col-md-12">
+                <div class="col-md-12 font-15">
+                  <h4 class="hr_mg" class="text-primary">求购二手发票齐全成色较好iphone</h4>               
+                  <p class="text-muted" style="text-indent:2em;">价格好商量，要求9成新即可价格好求9成新价格求9成新即成新即成新即成新成新成新成新成新成新即可价。</p> 
+                </div>               
+              </div>
+            </div>
+
+            <div class="row list_miaoshu">
+              <div class="row font-medium text-muted">
+                <div class="col-xs-5 pdding_right">
+                  <span class="glyphicon glyphicon-map-marker"></span> 交易地:
+                </div>
+                <div class="col-xs-6">
+                  <div class="row">食堂三楼小卖部前面</div>
+                </div>
+              </div>
+              <div class="row font-medium text-muted">
+                <div class="col-xs-5 pdding_right">
+                  <span class="glyphicon glyphicon-heart"></span> 期望价:
+                </div>
+                <div class="col-xs-6">
+                  <div class="row text-primary bold">¥55.01</div>
+                </div>
+              </div>
+              <div class="row font-medium text-muted">
+                <div class="col-xs-5 pdding_right">
+                  <span class="glyphicon glyphicon-earphone"></span> 联系ta:
+                </div>
+                <div class="col-xs-6">
+                  <div class="row">15012345678</div>
+                </div>
+              </div>
+              <hr class="hr_mg">                  
+              <div class="no-pull l_h">
+                <a href="" class="pull-left text-muted font-small"><span class="glyphicon glyphicon-user"></span> 张三</a>
+                <span class="text-muted pull-right font-small" title="发布时间"><span class="glyphicon glyphicon-time"></span> 未过期</span>
+              </div>                  
+              <div class="no-pull l_h">
+                <span class="text-muted pull-left font-small" title="发布时间"><span class="glyphicon glyphicon-pencil"></span> 10分钟前</span>
+                <a href="" class="pull-right text-muted font-small" title="交易地点"><span class="glyphicon glyphicon-comment"></span> 评论(5)</a>
+              </div>
+            </div>                  
+            <!-- 上下结构_END -->
+          </div>                  
+        </div>
+        <!-- 一个求购商品_end -->  
+      </div>
+
+
+
+
+
+
+      <!-- 分页 -->
+      <div class="row">
+        <div class="col-md-12 text-center">
+         {$page}          
+       </div>
+     </div>
+
+
+
+
+   </div>
+   <!-- div-md-8_end -->
+
+   <div class="col-md-3">
+    <!-- 分类row 九宫格 -->
+    <div class="row">
+      <style>
+      @font-face {font-family: 'iconfont';
+      src: url('__CSS__/iconfont/iconfont.eot'); /* IE9*/
+      src: url('__CSS__/iconfont/iconfont.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+      url('__CSS__/iconfont/iconfont.woff') format('woff'), /* chrome、firefox */
+      url('__CSS__/iconfont/iconfont.ttf') format('truetype'), /* chrome、firefox、opera、Safari, Android, iOS 4.2+*/
+      url('__CSS__/iconfont/iconfont.svg#iconfont') format('svg'); /* iOS 4.1- */
+    }
+    .iconfont{
+      font-family:"iconfont" !important;
+      font-size:16px;font-style:normal;
+      -webkit-font-smoothing: antialiased;
+      -webkit-text-stroke-width: 0.2px;
+      -moz-osx-font-smoothing: grayscale;
+      font-size:30px;
+      color:#777;
+    }
+    </style>  
+    <div class="col-md-12">
+
+      <div class="panel panel-success">
+        <div class="panel-body" style="padding:0 !important;">
+          <volist name="cat_list" id="v">
+            <a href="__CONTROLLER__/cat/?cn_id={$channel.cn_id}&cat_id={$v.cat_id}" class="col-md-4 text-center border hover_bg bg-white">
+              <i class="iconfont">{$v.cat_icon}</i>
+              <br>
+              <p class="font-small text-muted text-center text-center">{$v.cat_name}</p>
+            </a>              
+          </volist>
+          <a href="" class="col-md-4 text-center border hover_bg bg-white">
+            <i class="iconfont">&#xe60a;</i>
+            <p class="font-small text-muted text-center text-center">个人中心</p>
+          </a>
+        </div>
+      </div>
+      <!-- panel_end -->
+
+
+
+
+
+    </div>
+  </div>
+  <!-- 九宫格_end -->
+  <!-- 专题 -->
+  <div class="row">
+    <div class="col-md-12 yahei">
+      <div class="panel panel-success">
+        <div class="panel-body text-center">
+          <a href=""><h3>专题(放图片)<small>副标题内容，介绍....</small></h3></a>
+        </div>
+      </div>        
+    </div>
+  </div>   
+  <!-- 专题_end -->
+
+
+  <!-- 公告栏 -->
+  <div class="row">
+    <div class="col-md-12 yahei">
+      <div class="panel panel-success">
+        <div class="panel-body">
+          <fieldset>
+            <legend class="text-muted font-medium margin-bottom legend_pd"><span class="glyphicon glyphicon-bullhorn"></span> 公告栏</legend>
+            <ul class="list-unstyled">
+              <li><a href="">公告内容1</a></li>
+              <li><a href="">公告内容2</a></li>
+            </ul>
+          </fieldset>  
+        </div>
+      </div>        
+    </div>
+
+  </div>
+  <!-- 公告栏_end -->
+
+  <!-- 点击排行榜 -->
+  <div class="row">
+    <div class="col-md-12 yahei">
+      <div class="panel panel-success">
+        <div class="panel-body">
+          <fieldset>
+            <legend class="text-muted font-medium margin-bottom legend_pd"><span class="glyphicon glyphicon-fire"></span> 本月热门</legend>
+            <!-- 一条 -->
+            <div class="media">
+              <div class="media-left left_img padding-right"><a href="#"><img src="" alt=""><img src="__IMG__/test/2.jpg" style="width:100%;" alt=""></a></div>
+              <div class="media-right">
+                <p class="m_t"><a href="#" class="c-gray font-medium">华为手机便宜大甩卖</a></p>
+              </div>
+            </div>
+            <!-- 一条_end --> 
+            <!-- 一条 -->
+            <div class="media">
+              <div class="media-left left_img padding-right"><a href="#"><img src="" alt=""><img src="__IMG__/test/2.jpg" style="width:100%;" alt=""></a></div>
+              <div class="media-right">
+                <p class="m_t"><a href="#" class="c-gray font-medium">华为手机便宜大甩卖</a></p>
+              </div>
+            </div>
+            <!-- 一条_end -->                 
+            <!-- 一条 -->
+            <div class="media">
+              <div class="media-left left_img padding-right"><a href="#"><img src="" alt=""><img src="__IMG__/test/2.jpg" style="width:100%;" alt=""></a></div>
+              <div class="media-right">
+                <p class="m_t"><a href="#" class="c-gray font-medium">华为手机便宜大甩卖</a></p>
+              </div>
+            </div>
+            <!-- 一条_end -->
+          </fieldset>  
+
+        </div>
+      </div>        
+    </div>
+  </div>
+  <!-- 公告栏_end -->
+
+
+</div>
+<!-- div-md-4_end -->
+
+</div>
+<!-- div_最大的row_end -->
+
+
+
+
+
+
+
+</div>
+<!-- container_end -->
+
+
+
+

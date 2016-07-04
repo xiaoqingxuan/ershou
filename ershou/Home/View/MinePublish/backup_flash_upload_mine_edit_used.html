@@ -1,0 +1,244 @@
+      <div class="panel panel-success margin-top">
+        <div class="panel-body">
+          <fieldset>
+            <legend><span class="glyphicon glyphicon-edit"></span> {$publish_name}</legend>
+            <!-- 表单     -->
+            <form class="form-horizontal" method="POST" action="{$action}" id="form" onsubmit="return jQuery(this).validationEngine('validate');">
+
+              <div class="form-group">
+                <label for="used_name" class="control-label col-md-3">商品名称</label>
+                <div class="col-md-7"><input type="text" name="goods_name" id="used_name" value="{$edit_goods.goods_name}" class="form-control validate[required,maxSize[25]]" placeholder="至多25字"></div>
+              </div>
+<style>
+.upload_img_w{
+   position:relative;
+   float:left;
+   width:45%;
+   border:1px solid white; 
+}  
+.upload_img_exit{
+  cursor:pointer;
+  background:black;
+  padding:1px 5px 1px 5px;
+  height:23px;
+  color:white;
+  position:absolute;
+  right:0;
+  top:0;  
+}
+</style>
+
+              <script src="__ROOT__/../public/jquery/uploadify/jquery.uploadify.min.js" type="text/javascript"></script>
+              <link rel="stylesheet" href="__ROOT__/../public/jquery/uploadify/uploadify.css">              
+              <div class="form-group">
+                <label for="file_upload" class="control-label col-md-3">上传图片</label>
+                <div class="col-md-9" id="upload_img">
+                  <div id="queue"></div>
+                  <input type="file" name="file_upload" id="file_upload" multiple="true" style="display:none;" class="validate[required]"><small>允许 jpg/png/gif 格式, 至少1张图片, 至多4张图片, 每个最大1M</small>
+        <p><small>已上传<span id="img_current_num">0</span>张</small></p>
+
+
+                  <volist name="edit_goods.img_array_two" id="v" key="k">
+                    <div class="upload_img_w" id="upload_img_w_{$k}">
+                      <img style="width:100%;" src="{$v.src}" alt="" id="preview_{$k}" class="upload" data-file_name="{$v.file_name}" name="img_upload_name" />
+                      <div class="upload_img_exit" exit_num="{$k}">X</div>
+                    </div>        
+                  </volist>
+             
+                </div>
+              </div>
+
+              <script type="text/javascript">
+              var _MODULE_='__MODULE__';
+              $(document).on('click','.upload_img_exit',function(){
+                var exit_num=$(this).attr('exit_num');
+                $('#upload_img_w_'+exit_num).remove();
+                $('[name="goods_img_'+exit_num+'"]').remove();
+                num_file--;
+                if((num_file-1)<4){
+                  $('#file_upload').uploadify('disable', false);                      
+                }       
+                $('#img_current_num').html(num_file-1);                                    
+              });
+
+
+
+              var form=$('#form');
+              var num_file=$('.upload').length+1;
+              $('#img_current_num').html(num_file-1);         
+              <?php $timestamp = time();?>
+              $(function() {
+                $('#file_upload').uploadify({
+                  'fileSizeLimit':1024,
+                  'fileTypeDesc':'支持jpg/png/gif类型图片',
+                  'buttonText':'选择图片',
+                  'uploadLimit':10,
+                  'formData'     : {
+                    'timestamp' : '<?php echo $timestamp;?>',
+                    'token'     : '<?php echo md5('unique_salt' . $timestamp);?>'
+                  },
+                  'swf'      : '__ROOT__/../public/jquery/uploadify/uploadify.swf',
+                  'uploader' : '__ROOT__/../public/jquery/uploadify/uploadify.php',
+                  'onSWFReady':function(){
+                    if((num_file-1)>=4){
+                      $('#file_upload').uploadify('disable',true);                     
+                    }
+                  },
+                  'onUploadSuccess' : function(file, data, response) {
+                    $('#upload_img').append('<div class="upload_img_w" id="upload_img_w_'+num_file+'"><img style="width:100%;" src="{$img_src}/'+file.name+'" alt="" id="preview_'+num_file+'" class="upload" data-file_name="'+file.name+'" name="img_upload_name"><div class="upload_img_exit" exit_num="'+num_file+'">X</div></div>');
+                    num_file++;
+                    $('#img_current_num').html(num_file-1);
+                    if((num_file-1)>=4){
+                      $('#file_upload').uploadify('disable', true);                      
+                    }                    
+                  }                  
+                });
+              });
+      </script>                           
+
+
+
+
+<!-- html5上传              <div class="form-group">
+                <label for="file_upload" class="control-label col-md-3">上传图片</label>
+                <div class="col-md-7">
+                  <div id="queue"></div>
+                  <input type="file" name="file_upload" id="file_upload" style="display:none;">
+                </div>
+              </div> -->
+              <!-- file upload plugin -->
+              <!--
+              <script src="__ROOT__/../public/jquery/uploadifive-v1.1.2-standard/jquery.uploadifive.min.js"></script>  
+              <link rel="stylesheet" href="__ROOT__/../public/jquery/uploadifive-v1.1.2-standard/uploadifive.css">              
+              <script type="text/javascript">
+              <?php $timestamp = time();?>
+              $(function() {
+                $('#file_upload').uploadifive({
+                  'buttonText'       :'选择图片',
+                  'fileSizeLimit': 1024,//最大1M
+                  'uploadLimit':4,  //最多上传
+                  'checkScript'      : '__ROOT__/../public/jquery/uploadifive-v1.1.2-standard/check-exists.php',//检查现有文件名重复
+                  'formData'         : {
+                   'timestamp' : '<?php echo $timestamp;?>',
+                   'token'     : '<?php echo md5('unique_salt' . $timestamp);?>'
+                 },
+                 'queueID'          : 'queue',
+                 'uploadScript'     : '__ROOT__/../public/jquery/uploadifive-v1.1.2-standard/uploadifive.php',
+                 'onUploadComplete' : function(file, data) { console.log(data); }
+               });
+              });
+              </script>
+            -->
+
+            <div class="form-group">
+              <label for="used_price" class="control-label col-md-3">价格</label>
+              <div class="col-md-7">
+                <div class="input-group">
+                  <span class="input-group-addon">￥</span>
+                  <input type="text" name="goods_price" id="used_price" value="{$edit_goods.goods_price}" class="form-control validate[custom[number],required]" placeholder="填写数字">
+                </div>
+              </div>
+            </div>
+
+
+            <div class="form-group">
+              <label for="used_price_pre" class="control-label col-md-3">原价</label>
+              <div class="col-md-7">
+                <div class="input-group">
+                  <span class="input-group-addon">￥</span>
+                  <input type="text" name="goods_price_pre" id="used_price_pre" value="{$edit_goods.goods_price_pre}" class="form-control validate[custom[number],required]" placeholder="填写数字">
+                </div>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="userd_describe" class="control-label col-md-3">详细描述</label>
+              <div class="col-md-7"><textarea name="goods_desc" class="form-control validate[required,maxSize[350]]" id="userd_describe" cols="30" rows="10" placeholder="至多350个字, 建议您描述物品的用处、新旧情况以及原价等信息">{$edit_goods.goods_desc}</textarea></div>
+            </div> 
+            <div class="form-group">
+              <label for="used_address" class="control-label col-md-3">交易地点</label>
+              <label for="used_address" class="control-label col-md-2 font-small normal text-center" style="padding:10px 0 0 0;" data-toggle="tooltip" data-placement="bottom" title="学校不正确吗? 点击修改。"><a class="text-muted" href="__MODULE__/MineSelectSchool/">{$_COOKIE['user_school']}&nbsp;</a></label>               
+              <div class="col-md-5" style="padding-left:0;"><input type="text" name="trade_address" id="used_address" class="form-control validate[required,maxSize[14]]" value="<if condition="isset($publishUsed)">{$default.default_address}</if>{$edit_goods.trade_address}" placeholder="至多50字, 如:xx宿舍、xx饭堂、xx教学楼等"></div>
+            </div>
+            <div class="form-group">
+              <label for="used_cat" class="control-label col-md-3">类别</label>
+              <div class="col-md-7">
+                <select name="cat_id" id="used_cat" class="form-control validate[required]">
+
+                  <if condition="$edit_goods['cat_id']">
+                    <volist name="cat_list" id="v">
+                      <option value="{$v.cat_id}">{$v.cat_name}</option>
+                    </volist>
+                    <else />
+                    <option value="">请选择</option>   
+                    <volist name="cat_list" id="v">
+                      <option value="{$v.cat_id}">{$v.cat_name}</option>
+                    </volist>                                       
+                  </if>
+
+                </select>              
+              </div>
+            </div>                         
+            <div class="form-group">
+              <label for="used_phone" class="control-label col-md-3">手机号</label>
+              <div class="col-md-7"><input type="text" name="phone_number" id="used_phone" value="<if condition="isset($publishUsed)">{$default.default_phone}</if>{$edit_goods.phone_number}" class="form-control validate[required,custom[phone]]" placeholder="至多11位数字"></div>
+            </div>
+            <div class="form-group">
+              <label for="used_qq" class="control-label col-md-3">QQ号</label>
+              <div class="col-md-7"><input type="text" name="qq_number" id="used_qq" value="<if condition="isset($publishUsed)">{$default.default_qq}</if>{$edit_goods.qq_number}" class="form-control validate[required,custom[qq]]" placeholder="至多15位数字"></div>
+            </div>            
+            <div class="form-group"> 
+              <label for="checked" class="col-md-offset-3 col-md-5"><input class="vitical-center validate[required]" type="checkbox" checked="true" name="agree_rule" id="checked">我同意<a target="_blank" href="__PUBLISH_REGULAR__">《发布规则》</a></label>
+            </div>            
+            <div class="form-group">
+              <div class="col-md-8 col-md-offset-2"><input type="submit" value="{$publish_button_name}" name="" id="used" class="form-control btn btn-primary"></div>
+            </div>            
+          </form>
+          <!-- 表单_end -->
+        </fieldset>             
+
+      </div><!--panel_body__end-->
+    </div>     
+
+    <!-- 表单验证 -->
+    <link rel="stylesheet" href="__ROOT__/../public/jquery/Validation-Engine/css/validationEngine.jquery.css">
+    <script src="__ROOT__/../public/jquery/Validation-Engine/js/jquery.validationEngine-zh_CN.js"></script> 
+    <script src="__ROOT__/../public/jquery/Validation-Engine/js/jquery.validationEngine.js"></script> 
+
+
+
+    <script>
+    $('#form').validationEngine({addPromptClass:'formError-text',promptPosition:'centerRight',onSuccess:vali_upload});
+    function vali_upload(){
+      $('#form').submit(function(event){
+        var rs=$('.upload').attr('data-file_name');
+        if(!rs){
+          event.preventDefault();
+          var d = dialog({
+            fixed: true,
+            content: '<span class="glyphicon glyphicon-info-sign"></span> 抱歉，请至少上传1张图片。'
+          });
+          d.show();
+          setTimeout(function () {
+            d.close().remove();
+          }, 3000);
+        }else{
+          // 排序上传地址          
+          var img_arr=document.getElementsByName('img_upload_name');
+          console.log(img_arr);
+          for(var i=0;i<img_arr.length;i++){
+            form.append('<input value="'+img_arr[i].dataset.file_name+'" type="hidden" class="upload" name="goods_img_'+(i+1)+'">');
+          }
+
+        }
+      });
+    }
+
+
+
+
+
+    </script>
+
+
+

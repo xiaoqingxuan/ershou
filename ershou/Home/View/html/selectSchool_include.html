@@ -1,0 +1,33 @@
+        <div class="form-group form-group-lg has-success" id="element_id">
+            <div class="input-group col-md-offset-2 col-md-8">
+              <select class="province form-control validate[required]" name="user_province">
+                <option value="">请选择地区</option>
+                <option value="2">北京</option><option value="3">安徽</option><option value="4">福建</option><option value="5">甘肃</option><option value="6">广东</option><option value="7">广西</option><option value="8">贵州</option><option value="9">海南</option><option value="10">河北</option><option value="11">河南</option><option value="12">黑龙江</option><option value="13">湖北</option><option value="14">湖南</option><option value="15">吉林</option><option value="16">江苏</option><option value="17">江西</option><option value="18">辽宁</option><option value="19">内蒙古</option><option value="20">宁夏</option><option value="21">青海</option><option value="22">山东</option><option value="23">山西</option><option value="24">陕西</option><option value="25">上海</option><option value="26">四川</option><option value="27">天津</option><option value="28">西藏</option><option value="29">新疆</option><option value="30">云南</option><option value="31">浙江</option><option value="32">重庆</option><option value="33">香港</option><option value="34">澳门</option><option value="35">台湾</option>
+              </select>
+            </div>
+          <div class="input-group col-md-offset-2 col-md-8" style="margin-top:15px;">
+            <select  data-url="__MODULE__/Method/selectSchool/?school_id=3409" data-json-space="data" class="school form-control validate[required]" name="school_id" data-first-title='请选择学校' disabled></select>
+          </div>
+        </div>
+        <script src="__ROOT__/../public/jquery/cxSelect-master/js/jquery.cxselect.min.js"></script>
+        <script>
+        $('#element_id').cxSelect({
+          selects: ['province','school'],
+          jsonName: 'region_name',
+          jsonValue: 'region_id',
+        });    
+        $('.school').click(function(){
+          $('.school').removeAttr('disabled');
+          $('#tell_us,#hr').show();
+        });                                    
+        </script>
+      <p id="tell_us" style="display:none;" class="text-center yahei">如果没找到我的学校?点击<button id="submit" class="btn btn-primary btn-xs">告诉我们</button>，谢谢~</p>        
+
+
+<!-- 表单验证 -->
+<link rel="stylesheet" href="__ROOT__/../public/jquery/Validation-Engine/css/validationEngine.jquery.css">
+<script src="__ROOT__/../public/jquery/Validation-Engine/js/jquery.validationEngine-zh_CN.js"></script> 
+<script src="__ROOT__/../public/jquery/Validation-Engine/js/jquery.validationEngine.js"></script> 
+<script>
+$('#form').validationEngine({scroll: false}); 
+</script>

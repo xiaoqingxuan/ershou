@@ -1,0 +1,74 @@
+<layout name="Layout/layout_mine"/>
+
+
+
+    <div class="col-md-7">
+      <div class="panel panel-success margin-top">
+
+        <div class="panel-body">
+          <fieldset>
+            <legend><span class="glyphicon glyphicon-th-list"></span> 我的闲置</legend>
+          </fieldset>
+          <if condition="!empty($used_list)">
+            <!-- 表格   -->
+            <table class="table table-hover table_list">
+              <tr>
+                <th class="font-small text-muted text-center">商品</th>
+                <th class="font-small text-muted text-center">价格</th>
+                <th class="font-small text-muted text-center">发布时间</th>              
+                <th class="font-small text-muted text-center">状态</th>
+                <th class="font-small text-muted text-center">操作</th>
+              </tr>              
+              <volist name="used_list" id="v">
+                <!-- 一个商品 -->
+                <tr id="{$v['goods_id']}">
+                  <td class="text-left" valign="middle">
+                    <div class="media-left padding-right height-100p">
+                      <a href="__MODULE__/Content/?goods_id={$v['goods_id']}"><img src="{$v['goods_thumb']}" class="img-80" alt=""></a>
+                    </div>
+                    <div class="media-right height-100p middle">
+                      <p class="m_t"><a href="__MODULE__/Content/?goods_id={$v['goods_id']}" class="c-gray">{$v['goods_name']}</a></p>
+                    </div>
+                  </td>
+                  <td class="text-center">￥{$v['goods_price']}</td>
+                  <td class="text-center">{$v['add_time']}</td>              
+                  <td class="text-center" id="is_sale">
+                    <if condition="$v['is_sale']==1">
+                      在售中...
+                    <else />
+                      已售
+                    </if>
+                  </td>
+                  <td>
+                    <a href="__MODULE__/MinePublish/editUsed/?goods_id={$v['goods_id']}" class="btn btn-default btn-xs"><span class="glyphicon glyphicon-edit"></span> 修改</button></a>
+                    <if condition="$v['is_sale']==1">
+                      <button class="btn btn-default btn-xs is_sale" code="used" act_id="{$v.goods_id}" is_sale={$v.is_sale}><span class="glyphicon glyphicon-arrow-down"></span> 下架</button>
+                    <else />
+                      <button class="btn btn-default btn-xs is_sale" code="used" act_id="{$v.goods_id}" is_sale={$v.is_sale}><span class="glyphicon glyphicon-arrow-up"></span> 上架</button>
+                    </if>
+                    <button class="btn btn-default btn-xs delete"  code="used" act_id="{$v.goods_id}" is_sale={$v.is_sale}><span class="glyphicon glyphicon-trash"></span> </button>                    
+                  </td>
+                </tr>
+                <!-- 一个商品_end -->
+              </volist>
+            </table>               
+
+            <div class="col-md-12 text-center">
+              <div class="row">
+                <!-- 分页 -->
+                {$page}          
+              </div>                       
+            </div>
+            <else />
+            <p class="text-center">抱歉，您还没发布过求购，即刻<a href="__MODULE__/MinePublish/publishUsed/" class="btn btn-primary btn-xs">发布二手</a>。</p>
+          </if>
+      <!-- 表格_end -->
+        </div><!--panel_body__end-->
+      </div>          
+    </div>
+  </div>
+  <!-- row_end -->
+</div>
+<!-- 内容_container_end  -->
+
+  

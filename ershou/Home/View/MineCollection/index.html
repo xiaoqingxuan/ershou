@@ -1,0 +1,82 @@
+<layout name="Layout/layout_mine"/>
+
+<div class="col-md-7">
+  <div class="panel panel-success margin-top">
+
+    <div class="panel-body">
+      <fieldset>
+        <legend><span class="glyphicon glyphicon-heart"></span> 我的收藏</legend>
+      </fieldset>
+      <!-- 表格   -->
+      <table class="table table-hover table_list">
+        <tr>
+          <th class="font-small text-muted text-center">商品</th>
+          <th class="font-small text-muted text-center">价格</th>
+          <th class="font-small text-muted text-center">状态</th>
+          <th class="font-small text-muted text-center">操作</th>
+        </tr>
+
+        <volist name="list" id="v">
+          <tr id="{$v.id}">
+            <td class="text-left" valign="middle">
+              <div class="media-left padding-right height-100p">
+                <a href="__MODULE__/Content/?goods_id={$v['goods_used']['goods_id']}"><img src="__IMG__/goods/img/{$v['goods_used']['goods_thumb']}" class="img-80" alt=""></a>
+              </div>
+              <div class="media-right height-100p middle">
+                <p class="m_t"><a href="__MODULE__/Content/?goods_id={$v['goods_used']['goods_id']}" class="c-gray">{$v['goods_used']['goods_name']}</a></p>
+              </div>
+            </td>
+
+
+
+
+            <td class="text-center">￥{$v['goods_used']['goods_price']}</td>
+
+            <td class="text-center" id="is_sale">
+              <if condition="$v['goods_used']['is_sale']==1">
+                有效
+                <else />
+                <span class="text-danger" data-toggle="tooltip" data-placement="bottom" title="__INVALID_REASON__">%>_<% 失效了</span>
+              </if>
+            </td>
+            <td class="text-center">
+              <button class="btn btn-default btn-xs delete"  code="collection" act_id="{$v.id}">
+                <span class="glyphicon glyphicon-trash"></span>
+              </button>
+
+
+
+
+            </td>
+
+
+          </tr>
+          <!-- 一个商品_end -->
+        </volist>
+
+
+      </table>
+
+      <div class="col-md-12 text-center">
+        <div class="row">
+          <!-- 分页 -->
+          {$page}          
+        </div>              
+      </div>
+
+
+      <!-- 表格_end -->
+    </div><!--panel_body__end-->
+  </div>          
+
+
+
+</div>
+
+
+</div>
+<!-- row_end -->
+</div>
+<!-- 内容_container_end  -->
+
+

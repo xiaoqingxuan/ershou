@@ -1,0 +1,73 @@
+
+<div class="panel panel-success margin-top">
+
+  <div class="panel-body">
+    <fieldset>
+      <legend><span class="glyphicon glyphicon-edit"></span>  {$publish_name}</legend>
+    </fieldset>             
+    <!-- 表单     -->
+    <form class="form-horizontal" method="POST" action="{$action}" id="form">
+      <div class="form-group">
+        <label for="used" class="control-label col-md-3">商品名称</label>
+        <div class="col-md-7"><input type="text" name="seek_name" id="used" value="{$edit_goods.seek_name}" class="form-control validate[required,maxSize[20]]" placeholder="20字以内"></div>
+      </div>
+      <div class="form-group">
+        <label for="expect_price" class="control-label col-md-3">希望价格</label>
+        <div class="col-md-3">
+          <div class="input-group">
+            <span class="input-group-addon">￥</span><input type="text" name="expect_price" value="{$edit_goods.expect_price}" id="expect_price" class="form-control validate[custom[number],required]" placeholder="填写数字">
+          </div>
+        </div>
+        <!-- <div class="col-md-1 text-center"><label class="control-label">或</label></div> -->
+        <!-- <div class="col-md-3"><div class="radio"><label><input type="radio" name="" value="0" id=""> 对方报价</label></div></div>                 -->
+      </div>
+      <div class="form-group">
+        <label for="userd_describe" class="control-label col-md-3">物品描述</label>
+        <div class="col-md-7"><textarea name="seek_desc" class="form-control validate[required,maxSize[59]]" id="userd_describe" cols="30" rows="5" placeholder="至多60字, 描述您需要的物品">{$edit_goods.seek_desc}</textarea></div>
+      </div> 
+      <div class="form-group">
+        <label for="trade_address" class="control-label col-md-3">交易地点</label>
+        <label for="trade_address" class="control-label col-md-2 font-small normal text-center" style="padding:10px 0 0 0;" data-toggle="tooltip" data-placement="bottom" title="学校不正确吗? 点击修改。"><a class="text-muted" href="__MODULE__/MineSelectSchool/">{$_COOKIE['user_school']}&nbsp;</a></label>          
+        <div class="col-md-5" style="padding-left:0;"><input type="text" name="trade_address" id="trade_address" value="<if condition="isset($publishSeek)">{$default.default_address}</if>{$edit_goods.trade_address}" class="form-control validate[required,maxSize[23]]" placeholder="至多23字, 如xx饭堂、xx宿舍、xx教学楼等"></div>
+      </div>
+      <div class="form-group">
+        <label for="cat" class="control-label col-md-3">类别</label>
+        <div class="col-md-7">
+          <select name="cat_id" id="cat" class="form-control validate[required]">
+            <if condition="$edit_goods['cat_id']">
+              <volist name="cat_list" id="v">
+                <option value="{$v.cat_id}">{$v.cat_name}</option>
+              </volist>
+              <else />
+              <option value="">请选择</option>   
+              <volist name="cat_list" id="v">
+                <option value="{$v.cat_id}">{$v.cat_name}</option>
+              </volist>                                       
+            </if>
+
+          </select>              
+        </div>
+      </div>                         
+      <div class="form-group">
+        <label for="phone_number" class="control-label col-md-3">手机号</label>
+        <div class="col-md-7"><input type="text" name="phone_number" value="<if condition="isset($publishSeek)">{$default.default_phone}</if>{$edit_goods.phone_number}" id="phone_number" class="form-control validate[required,custom[phone]]" placeholder="至多11位数字"></div>
+      </div>
+      <div class="form-group">
+        <label for="checked" class="col-md-offset-3 col-md-4"><input type="checkbox" checked="true" name="agree_rule" id="checked" class="text-medium validate[required]"> 我同意<a href="__PUBLISH_REGULAR__">《发布规则》</a></label>
+      </div>            
+      <div class="form-group">
+        <div class="col-md-8 col-md-offset-2"><input type="submit" value="{$publish_button_name}" name="" id="used" class="form-control btn btn-primary"></div>
+      </div>            
+    </form>
+    <!-- 表单_end -->
+
+  </div><!--panel_body__end-->
+</div>          
+
+<!-- 表单验证 -->
+<link rel="stylesheet" href="__ROOT__/../public/jquery/Validation-Engine/css/validationEngine.jquery.css">
+<script src="__ROOT__/../public/jquery/Validation-Engine/js/jquery.validationEngine-zh_CN.js"></script> 
+<script src="__ROOT__/../public/jquery/Validation-Engine/js/jquery.validationEngine.js"></script> 
+<script>
+$('#form').validationEngine({addPromptClass:'formError-text',promptPosition:'centerRight'});
+</script>

@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">  
+  <title>{$title}</title>
+  <script src="__ROOT__/../public/jquery/jquery_v2.1.3.min.js"></script>  
+  <!-- // <script src="__ROOT__/../public/jquery/jquery.easing.1.3.js"></script>   -->
+  <script src="__ROOT__/../public/bootstrap-3.3.5-dist/js/bootstrap.min.js"></script>
+  <script src="__JS__/bootstrap-hover-dropdown.js"></script>
+  <link rel="stylesheet" href="__ROOT__/../public/bootstrap-3.3.5-dist\css\bootstrap.min.css">
+  <link rel="stylesheet" href="__CSS__/song.css">
+  <link rel="stylesheet" href="__ROOT__/../public/jquery/artDialog/css/ui-dialog.css">
+  <script src="__ROOT__/../public/jquery/artDialog/dist/dialog-min.js"></script>   
+</head>
+<body>
+
+<!-- 导航条 -->
+  <div class="navbar navbar-inverse navbar-fixed-top yahei navbar-h40" id="nav-bar-20" style="border:0;border-radius:0;">
+    <div class="container pd-tb-0">
+      <div class="navbar-header">
+        <a class="navbar-brand logo_40" href="__ROOT__?school_id={$school_id}" title="xx,专业和便利的校内二手交易平台。">
+          <!-- logo 最多50px高 -->
+          <img src="__IMG__/logo/logo.png" alt="logo" style="height:40px;">
+        </a> 
+        <button class="navbar-toggle" data-toggle="collapse" data-target="#nav">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+      </div>
+        
+      <div class="collapse navbar-collapse">
+        <ul class="nav navbar-nav">
+          <li class="active"><a class="l_h_pd_10" href="__MODULE__/Mine/"><span>个人中心</span></a></li>
+          <li><a class="l_h_pd_10" href="__ROOT__/?school_id={$school_id}"><span>返回主页</span></a></li>                       
+          <li><a class="l_h_pd_10" href="__MODULE__/Index/cat/?cn_id=1&school_id={$school_id}"><span>__USED_ZONE__</span></a></li>          
+          <li><a class="l_h_pd_10" href="__MODULE__/Index/cat/?cn_id=2&school_id={$school_id}"><span>__SEEK_ZONE__</span></a></li>
+        </ul>
+<if condition="isset($_SESSION['user_email'])">
+        <ul class="nav navbar-nav navbar-right yahei">   
+          <li class="dropdown">
+            <a class="font-small dropdown-toggle  l_h_pd_10" data-toggle="dropdown" data-hover="dropdown" href="#" id="mine_a">
+            {$_COOKIE.user_name}
+             <span class="caret"></span>
+           </a>
+            <ul class="dropdown-menu">
+              <li class="text-right"><a href="__MODULE__/Mine/"><span class="glyphicon glyphicon-user"></span> 个人中心</a></li>
+              <li class="text-right"><a href="#"><span class="glyphicon glyphicon-edit"></span> 发布二手</a></li>              
+              <li class="text-right"><a href="#"><span class="glyphicon glyphicon-heart"></span> 我的收藏</a></li>                              
+              <li class="text-right"><a href="__MODULE__/login/logout/?u=true"><span class="glyphicon glyphicon-log-out"></span> 退出登录</a></li>              
+            </ul>
+          </li>
+        </ul> 
+<else />
+        <ul class="nav navbar-nav navbar-right yahei">   
+          <li><a href="__MODULE__/register/" class="l_h_pd_10 font-small">注册</a></li>
+          <li><a href="__MODULE__/login/" class="l_h_pd_10 font-small">登录</a></li>
+        </ul>
+</if>
+<!--         <ul class="nav navbar-nav navbar-right">   
+          <li class="dropdown">
+            <a class="l_h_pd_10 font-small dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" href="#">张三<span class="caret"></span></a>
+            <ul class="dropdown-menu">
+              <li class="text-right"><a href="#"><span class="glyphicon glyphicon-user"></span> 个人中心</a></li>
+            </ul>
+          </li>
+          <li><a class="l_h_pd_10 font-small" href="">登出</a></li>
+        </ul> -->
+      </div>
+
+    </div>
+  </div>
+<!-- 导航条_end -->
+
+<!-- 巨幕 -->
+<div class="jumbotron yahei jt_bg">
+  <div class="container">
+    <div class="row">
+      <!-- 左 -->
+      <div class="col-md-6 text-left margin-top">
+        <div class="media">
+          <div class="media-left">
+            <div class="center-block touxiang_div_80"><img src="__IMG__/test/user.png" style="width:100%;height:100%;" alt="" class="img-circle"></div>            
+          </div>
+          <div class="media-body"><div class="font-16 margin-top bold c-white">张三的个人中心</div><div class="font-small c-white line-height-23">来自于{$_COOKIE['school_name']}</div></div>
+        </div>
+      </div>
+      <!-- 左_end -->
+      <!-- 右 -->
+      <div class="col-md-6 text-right">
+        <p class="margin-top-15"><span class="font-small c-white">{$time}</span></p>
+        <p><span class="font-small c-white">{$rem}</span></p>
+      </div>
+      <!-- 右_end -->
+    </div>
+    <!-- row_end         -->
+  </div>
+</div>
+
+<!-- 巨幕_end -->
+
+
+
+
+
+<!-- 内容_container_end  -->
+<div class="container">
+  <div class="row yahei margin-bottom">
+
+
+    <div class="col-md-3  col-md-offset-1">
+      <div class="panel panel-success margin-top nav_left">
+        <div class="panel-body">
+          <fieldset>
+            <legend class="text-muted font-15"><span class="glyphicon glyphicon-th-list"></span> 条目</legend>
+            <ul class="nav nav-stacked">
+              <li <if condition="isset($index)">class="active_bg"</if> ><a href="__MODULE__/Mine/index/">我的闲置</a></li>
+              <li <if condition="isset($listSeek)">class="active_bg"</if> ><a href="__MODULE__/Mine/listSeek/">我的求购</a></li>
+              <li <if condition="isset($listCollection)">class="active_bg"</if> ><a href="__MODULE__/MineCollection/">我的收藏</a></li>        
+            </ul>
+          </fieldset>
+          <fieldset class="margin-top">
+            <legend class="text-muted font-15"><span class="glyphicon glyphicon-edit"></span> 发布</legend>      
+            <ul class="nav nav-pills nav-stacked">
+              <li <if condition="isset($publishUsed)">class="active_bg"</if> ><a href="__MODULE__/MinePublish/publishUsed/">发布闲置</a></li>
+              <li <if condition="isset($publishSeek)">class="active_bg"</if> ><a href="__MODULE__/MinePublish/publishSeek/">发布求购</a></li>
+            </ul>
+          </fieldset>
+          <fieldset class="margin-top">
+            <legend class="text-muted font-15"><span class="glyphicon glyphicon-cog"></span> 设置</legend>              
+            <ul class="nav nav-pills nav-stacked">
+              <li <if condition="isset($setSchool)">class="active_bg"</if> ><a href="__MODULE__/MineSelectSchool/">改变学校</a></li>
+              <li <if condition="isset($setPersonal)">class="active_bg"</if> ><a href="__MODULE__/MineSetPersonal/">个人信息</a></li>
+              <li <if condition="isset($setSafe)">class="active_bg"</if> ><a href="__MODULE__/MineSetSafe/">安全设置</a></li>
+            </ul>
+          </fieldset>
+        </div>
+      </div>     
+    </div>
